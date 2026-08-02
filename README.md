@@ -104,7 +104,7 @@ script simples de `INSERT`s. Exemplo (schema completo da tabela
 `queries` em `app/Models/Database.php`):
 
 ```powershell
-& "C:\wamp64\www\-sql-vault\src-tauri\target\release\php\php.exe" caminho\para\seu_script.php "C:\caminho\completo\para\vault.db" "C:\caminho\completo\para\seu_arquivo.sql"
+& "C:\sql-vault\src-tauri\target\release\php\php.exe" caminho\para\seu_script.php "C:\caminho\completo\para\vault.db" "C:\caminho\completo\para\seu_arquivo.sql"
 ```
 
 onde `seu_script.php` só precisa abrir o `vault.db` via
