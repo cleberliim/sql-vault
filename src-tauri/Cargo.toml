@@ -1,0 +1,21 @@
+[package]
+name = "sql-vault"
+version = "1.0.0"
+description = "SQL Vault - biblioteca pessoal de consultas SQL"
+edition = "2021"
+
+[package.metadata.tauri]
+# Reservado para uso futuro do tauri-build; mantém a estrutura de
+# metadados que o schema do Tauri espera encontrar no Cargo.toml.
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["devtools"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "sql-vault"
+path = "src/main.rs"

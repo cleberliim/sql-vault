@@ -1,0 +1,60 @@
+# ===== Node / npm =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.bak
+
+# ===== Rust / Tauri =====
+src-tauri/target/
+src-tauri/dist/
+src-tauri/Cargo.lock
+# (remova a linha acima se preferir versionar o Cargo.lock — comum
+# manter versionado em binários/apps, mas opcional aqui)
+
+# Instaladores/artefatos gerados pelo `tauri build`
+*.exe
+*.msi
+*.dmg
+*.app
+*.AppImage
+*.deb
+*.rpm
+
+# ===== PHP embutido (runtime portátil) =====
+# O binário do PHP (php.exe + DLLs) é pesado e não deveria ir pro Git.
+# Documente no README como baixar/instalar (windows.php.net) em vez de
+# versionar isso. Se preferir versionar mesmo assim (ex.: pra garantir
+# que todo mundo usa a mesma versão exata), comente as duas linhas abaixo.
+src-tauri/php/
+php/
+
+# ===== Banco de dados / dados locais =====
+storage/vault.db
+storage/vault.db-wal
+storage/vault.db-shm
+storage/vault.db-journal
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+!vault_demo.db
+!dados_demo.sql
+
+# ===== Logs =====
+*.log
+
+# ===== Sistema operacional =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Ambiente =====
+.env
+.env.local
