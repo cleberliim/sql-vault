@@ -1,4 +1,4 @@
-# Mini SQL Vault
+# SQL Vault
 
 Biblioteca pessoal de consultas SQL. Guarde, pesquise, edite e copie suas
 queries do dia a dia. Sem execução de queries, sem conexão a banco, sem IA.
@@ -63,7 +63,7 @@ de uma vez por todas.
 
 | Como você roda o app                         | Onde fica o `vault.db`                                            |
 |-----------------------------------------------|---------------------------------------------------------------------|
-| `.exe` instalado (produção, `npm run build`)   | `%APPDATA%\cleberlima.minisqlvaul\vault.db` *(veja nota do typo abaixo)* |
+| `.exe` instalado (produção, `npm run build`)   | `%APPDATA%\cleberlima.sqlvaul\vault.db` *(veja nota do typo abaixo)* |
 | `npm run dev` (`tauri dev`)                    | `src-tauri\php\...` **não** — continua em `storage\vault.db` na raiz do projeto |
 | `php -S 127.0.0.1:8756 index.php` (sem Tauri)  | `storage\vault.db` na raiz do projeto                                |
 
@@ -73,11 +73,11 @@ Essa lógica está em `config/config.php`: se a variável de ambiente
 `storage/vault.db`.
 
 **⚠️ Nota sobre o identificador do app:** o `identifier` em
-`src-tauri/tauri.conf.json` está gravado como `cleberlima.minisqlvaul`
+`src-tauri/tauri.conf.json` está gravado como `cleberlima.sqlvaul`
 (sem o "t" final — typo de digitação). É esse valor que o Tauri usa pra
 nomear a pasta em `%APPDATA%`, então o caminho real observado é
-`C:\Users\<usuário>\AppData\Roaming\cleberlima.minisqlvaul\vault.db`,
-**não** `...minisqlvault`. Se quiser corrigir o identifier pra ficar sem
+`C:\Users\<usuário>\AppData\Roaming\cleberlima.sqlvaul\vault.db`,
+**não** `...sqlvault`. Se quiser corrigir o identifier pra ficar sem
 o typo, dá pra fazer, mas isso muda o caminho da pasta de dados — quem já
 tiver usado o app precisaria mover o `vault.db` manualmente pra pasta
 nova depois da troca.
@@ -104,7 +104,7 @@ script simples de `INSERT`s. Exemplo (schema completo da tabela
 `queries` em `app/Models/Database.php`):
 
 ```powershell
-& "C:\wamp64\www\mini-sql-vault\src-tauri\target\release\php\php.exe" caminho\para\seu_script.php "C:\caminho\completo\para\vault.db" "C:\caminho\completo\para\seu_arquivo.sql"
+& "C:\wamp64\www\-sql-vault\src-tauri\target\release\php\php.exe" caminho\para\seu_script.php "C:\caminho\completo\para\vault.db" "C:\caminho\completo\para\seu_arquivo.sql"
 ```
 
 onde `seu_script.php` só precisa abrir o `vault.db` via
@@ -137,7 +137,7 @@ vai precisar, na sua máquina Windows:
 - O banco `storage/vault.db` não pode viver dentro da pasta de instalação
   em produção (normalmente somente leitura, ex.: `Program Files`). Agora
   `main.rs` resolve a pasta de dados do usuário (`app_data_dir()`, ex.:
-  `%APPDATA%\cleberlima.minisqlvaul` no Windows — veja a seção
+  `%APPDATA%\cleberlima.sqlvaul` no Windows — veja a seção
   "Onde fica o banco de dados" acima para detalhes sobre esse nome) e
   passa para o PHP
   via variável de ambiente `VAULT_DB_DIR`; `config/config.php` usa essa
